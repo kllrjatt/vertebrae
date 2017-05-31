@@ -58,7 +58,7 @@
           '</span>',
           '</br>',
           '</div>'
-        ].join('');
+        ].join(' ');
 
         return this.$el.html(html);
         /* Rendering raw model attributes like this could expose us
@@ -112,7 +112,7 @@
         /* Render each model in the collection as a list item (<li>).
          * Remember, we have the underscore functions: */
         this.$el.find('ul').append(this.collection.map(function (comment) {
-          // YOUR CODE HERE
+          return new CommentView({model: comment}).render()
         }));
 
         return this.$el;
@@ -136,7 +136,7 @@
     var commentsView = new CommentsView({ collection: comments });
 
 // Append it to the page (uncomment this when you are ready):
-// $('body').append(commentsView.render());
+$('body').append(commentsView.render());
   </script>
 </body>
 
